@@ -31,8 +31,7 @@ namespace Anagram.Tests
     {
         List<string> tempList = new List<string>{"beer", "beard"};
         Anagram newAnagram = new Anagram("bread", tempList);
-        // string result = newAnagram.GetTestList();
-        CollectionAssert.AreEqual(tempList, newAnagram.GetTestList());
+        CollectionAssert.AreEqual(tempList, newAnagram.GetWordList());
     }
 
     [TestMethod]
@@ -100,6 +99,24 @@ namespace Anagram.Tests
             Console.WriteLine(word);
         }
         CollectionAssert.AreEqual(expectedResultList, newAnagram.CheckWordList());
+    }
+
+    [TestMethod]
+
+    public void SetWord_WordPropertyIsUpdated_String()
+    {
+        List<string> listToCheck = new List<string>{"beers", "beard"};
+        Anagram newAnagram = new Anagram("stringOne", listToCheck);
+        newAnagram.SetWord("stringTwo");
+        Assert.AreEqual("stringTwo", newAnagram.GetWord());
+    }
+    public void SetWordList_ListPropertyIsUpdated_List()
+    {
+        List<string> tempList = new List<string>{"beers", "beard"};
+        List<string> listToSet = new List<string>{"bob"};
+        Anagram newAnagram = new Anagram("stringOne", tempList);
+        newAnagram.SetWordList(listToSet);
+        Assert.AreEqual(listToSet, newAnagram.GetWordList());
     }
   }
 }

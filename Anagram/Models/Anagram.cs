@@ -17,9 +17,18 @@ namespace Anagram
         {
             return _word;
         }
-        public List<string> GetTestList()
+
+        public void SetWord(string newWord)
+        {
+            _word = newWord;
+        }
+        public List<string> GetWordList()
         {
             return _testList;
+        }
+        public void SetWordList(List<string> wordList)
+        {
+            _testList = wordList;
         }
 
         public bool CheckIfAnagram(string stringToCheck)
