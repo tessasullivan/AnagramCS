@@ -88,6 +88,15 @@ namespace Anagram.Tests
         Assert.AreEqual(false, newAnagram.CheckIfAnagram(stringToTest));
     }
 
+    [TestMethod] 
+    public void CheckIfPartialMatch_WordIsPartialMatch_True()
+    {
+        string stringToTest = "bread";
+        List<string> tempList = new List<string>{"red"};
+        Anagram newAnagram = new Anagram("bread", tempList); 
+        Assert.AreEqual(true, newAnagram.CheckIfAnagram(stringToTest));
+    }
+
     [TestMethod]
     public void CheckWordList_WordListContainsAnagram_ListOfAnagrams()
     {

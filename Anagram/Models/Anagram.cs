@@ -33,11 +33,7 @@ namespace Anagram
 
         public bool CheckIfAnagram(string stringToCheck)
         {
-            if (_word.Length != stringToCheck.Length)
-            {
-                return false;
-            }
-            else if (_word == stringToCheck)
+            if (_word == stringToCheck)
             {
                 return true;
             } 
@@ -51,7 +47,7 @@ namespace Anagram
                 splitStringToTest = SortArray(splitStringToTest);
                 string splitWordJoined = String.Join("", splitWord);
                 string splitStringToTestJoined = String.Join("", splitStringToTest);
-                if ( splitWordJoined == splitStringToTestJoined)
+                if ( splitWordJoined.Contains(splitStringToTestJoined) || splitStringToTestJoined.Contains(splitWordJoined))
                 {
                     return true;
                 }
