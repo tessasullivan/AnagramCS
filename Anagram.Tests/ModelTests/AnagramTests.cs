@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System;
 using Anagram;
 
 namespace Anagram.Tests
@@ -86,6 +87,19 @@ namespace Anagram.Tests
         List<string> tempList = new List<string>{"beers"};
         Anagram newAnagram = new Anagram("beers", tempList);
         Assert.AreEqual(false, newAnagram.CheckIfAnagram(stringToTest));
+    }
+
+    [TestMethod]
+    public void CheckWordList_WordListContainsAnagram_ListOfAnagrams()
+    {
+        List<string> expectedResultList = new List<string>{"beard"}; 
+        List<string> listToCheck = new List<string>{"beers", "beard"};
+        Anagram newAnagram = new Anagram("bread", listToCheck);
+        foreach (string word in listToCheck)
+        {
+            Console.WriteLine(word);
+        }
+        CollectionAssert.AreEqual(expectedResultList, newAnagram.CheckWordList());
     }
   }
 }

@@ -53,6 +53,19 @@ namespace Anagram
 
             }
         }
+        public List<string> CheckWordList()
+        {
+            List<string> result = new List<string>{};
+            foreach (string word in _testList)
+            {
+                if (CheckIfAnagram(word))
+                {
+                    result.Add(word);
+                }
+                
+            }
+            return result;
+        }
         public char[] ConvertWordToArray(string stringToConvert)
         {
             // char[] convertedString = stringToConvert.ToCharArray();
